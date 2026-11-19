@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="az">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elektronik Ticarət Mərkəzi</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/style.css" />
+    <meta property="og:image" content="https://bolt.new/static/og_default.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://bolt.new/static/og_default.png">
+  </head>
+  <body>
+    <!-- ===== HEADER ===== -->
+    <header class="site-header sticky-top">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid px-3 px-lg-4">
+          <!-- Logo -->
+          <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+            <i class="bi bi-lightning-charge-fill brand-icon"></i>
+            <span class="brand-text">TexnoBazar</span>
+          </a>
+
+          <!-- Search bar (center) -->
+          <div class="search-wrapper d-none d-md-flex flex-grow-1 mx-3 mx-lg-5">
+            <div class="input-group search-input-group">
+              <span class="input-group-text search-icon-wrapper">
+                <i class="bi bi-search"></i>
+              </span>
+              <input
+                type="text"
+                class="form-control search-input"
+                id="searchInput"
+                placeholder="Məhsul axtarın..."
+                aria-label="Məhsul axtarın"
+              />
+            </div>
+          </div>
+
+          <!-- Toggler for mobile -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navMain"
+            aria-controls="navMain"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="bi bi-list toggler-icon"></i>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navMain">
+            <!-- Categories dropdown -->
+            <div class="dropdown categories-dropdown ms-auto">
+              <button class="btn btn-categories dropdown-toggle" type="button" id="categoriesDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-grid me-2"></i>Kateqoriyalar
+              </button>
+              <ul class="dropdown-menu categories-menu" aria-labelledby="categoriesDropdown">
+                <li><button class="dropdown-item category-item active" data-category="all">Hamısı</button></li>
+                <li><button class="dropdown-item category-item" data-category="smartfonlar">Smartfonlar</button></li>
+                <li><button class="dropdown-item category-item" data-category="noutbuklar">Noutbuklar</button></li>
+                <li><button class="dropdown-item category-item" data-category="plansetler">Plansetlər</button></li>
+                <li><button class="dropdown-item category-item" data-category="monitorlar">Monitorlar</button></li>
+                <li><button class="dropdown-item category-item" data-category="elektron-kitablar">Elektron kitablar</button></li>
+                <li><button class="dropdown-item category-item" data-category="aksesuarlar">Aksesuarlar</button></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><button class="dropdown-item category-item" data-category="televizorlar">Televizorlar</button></li>
+                <li><button class="dropdown-item category-item" data-category="proyektorlar">Proyektorlar</button></li>
+                <li><button class="dropdown-item category-item" data-category="kameralar">Kameralar</button></li>
+                <li><button class="dropdown-item category-item" data-category="dronlar">Dronlar</button></li>
+                <li><button class="dropdown-item category-item" data-category="printerler">Printerlər</button></li>
+                <li><button class="dropdown-item category-item" data-category="skaynerler">Skaynerlər</button></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><button class="dropdown-item category-item" data-category="mehset-texnikasi">Məişət texnikası</button></li>
+                <li><button class="dropdown-item category-item" data-category="soyuducular">Soyuducular</button></li>
+                <li><button class="dropdown-item category-item" data-category="kondisionerler">Kondisionerlər</button></li>
+                <li><button class="dropdown-item category-item" data-category="aspiratorlar">Aspiratorlar</button></li>
+                <li><button class="dropdown-item category-item" data-category="pecliler">Pəçlilər</button></li>
+                <li><button class="dropdown-item category-item" data-category="mikro-dalga">Mikro dalğalı soba</button></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><button class="dropdown-item category-item" data-category="robot-supurgerler">Robot tostoranlar</button></li>
+                <li><button class="dropdown-item category-item" data-category="sok-cekenler">Şok çəkənlər</button></li>
+                <li><button class="dropdown-item category-item" data-category="fenler">Fenlər</button></li>
+                <li><button class="dropdown-item category-item" data-category="utuler">Ütülər</button></li>
+                <li><button class="dropdown-item category-item" data-category="et-cekenler">Ət çəkənlər</button></li>
+                <li><button class="dropdown-item category-item" data-category="blenderler">Blenderlər</button></li>
+                <li><button class="dropdown-item category-item" data-category="tosterler">Tosterlər</button></li>
+              </ul>
+            </div>
+
+            <!-- Favorites icon -->
+            <button class="btn icon-btn fav-btn position-relative ms-lg-2 mt-2 mt-lg-0" type="button" id="favBtn">
+              <i class="bi bi-heart-fill"></i>
+              <span class="cart-label d-lg-none ms-1">Sevimliler</span>
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill cart-badge fav-badge" id="favCount">0</span>
+            </button>
+
+            <!-- Cart icon -->
+            <button class="btn cart-btn position-relative ms-lg-2 mt-2 mt-lg-0" type="button" id="cartBtn">
+              <i class="bi bi-cart3"></i>
+              <span class="cart-label d-lg-none ms-1">Səbət</span>
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill cart-badge" id="cartCount">
+                0
+              </span>
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Mobile search bar -->
+      <div class="d-md-none mobile-search-wrapper px-3 pb-3">
+        <div class="input-group search-input-group">
+          <span class="input-group-text search-icon-wrapper">
+            <i class="bi bi-search"></i>
+          </span>
+          <input
+            type="text"
+            class="form-control search-input"
+            id="searchInputMobile"
+            placeholder="Məhsul axtarın..."
+          />
+        </div>
+      </div>
+    </header>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero-section">
+      <div class="hero-overlay"></div>
+      <div class="container position-relative">
+        <div class="row align-items-center min-vh-60">
+          <div class="col-lg-7 hero-content">
+            <span class="hero-badge">
+              <i class="bi bi-lightning-charge-fill"></i> Endirim Kampaniyası
+            </span>
+            <h1 class="hero-title">Texnologiyanın gələcəyi <span class="highlight">burada</span></h1>
+            <p class="hero-subtitle">
+              Ən son elektronika məhsullarında 40%-ə qədər endirim. Məhdud sayda məhsullar üçün xüsusi təklif.
+            </p>
+            <div class="hero-actions">
+              <a href="#products" class="btn btn-hero-primary">
+                <i class="bi bi-bag-fill me-2"></i>İndi Al
+              </a>
+              <a href="#products" class="btn btn-hero-secondary">
+                Kataloqa bax
+              </a>
+            </div>
+            <div class="hero-stats">
+              <div class="hero-stat">
+                <span class="stat-number">500+</span>
+                <span class="stat-label">Məhsul</span>
+              </div>
+              <div class="hero-stat-divider"></div>
+              <div class="hero-stat">
+                <span class="stat-number">10K+</span>
+                <span class="stat-label">Müştəri</span>
+              </div>
+              <div class="hero-stat-divider"></div>
+              <div class="hero-stat">
+                <span class="stat-number">24/7</span>
+                <span class="stat-label">Dəstək</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-wave"></div>
+    </section>
+
+    <!-- ===== PRODUCTS SECTION ===== -->
+    <section class="products-section py-5" id="products">
+      <div class="container">
+        <div class="section-header text-center mb-5">
+          <span class="section-eyebrow">Kataloq</span>
+          <h2 class="section-title">Məşhur Məhsullar</h2>
+          <p class="section-description">Seçilmiş ən yaxşı elektronika məhsulları sizin üçün</p>
+        </div>
+
+        <!-- Category filter pills (below header, visible on all screens) -->
+        <div class="filter-pills-wrapper mb-4">
+          <div class="filter-pills">
+            <button class="filter-pill active" data-category="all">Hamısı</button>
+            <button class="filter-pill" data-category="smartfonlar">Smartfonlar</button>
+            <button class="filter-pill" data-category="noutbuklar">Noutbuklar</button>
+            <button class="filter-pill" data-category="aksesuarlar">Aksesuarlar</button>
+            <button class="filter-pill" data-category="mehset-texnikasi">Məişət texnikası</button>
+            <button class="filter-pill" data-category="televizorlar">Televizorlar</button>
+            <button class="filter-pill" data-category="kondisionerler">Kondisionerlər</button>
+            <button class="filter-pill" data-category="aspiratorlar">Aspiratorlar</button>
+            <button class="filter-pill" data-category="soyuducular">Soyuducular</button>
+            <button class="filter-pill" data-category="fenler">Fenlər</button>
+            <button class="filter-pill" data-category="sok-cekenler">Şok çəkənlər</button>
+            <button class="filter-pill" data-category="pecliler">Pəçlilər</button>
+            <button class="filter-pill" data-category="et-cekenler">Ət çəkənlər</button>
+            <button class="filter-pill" data-category="utuler">Ütülər</button>
+            <button class="filter-pill" data-category="blenderler">Blenderlər</button>
+            <button class="filter-pill" data-category="tosterler">Tosterlər</button>
+            <button class="filter-pill" data-category="plansetler">Plansetlər</button>
+            <button class="filter-pill" data-category="elektron-kitablar">Elektron kitablar</button>
+            <button class="filter-pill" data-category="robot-supurgerler">Robot tostoranlar</button>
+            <button class="filter-pill" data-category="mikro-dalga">Mikro dalğalı soba</button>
+            <button class="filter-pill" data-category="proyektorlar">Proyektorlar</button>
+            <button class="filter-pill" data-category="kameralar">Kameralar</button>
+            <button class="filter-pill" data-category="dronlar">Dronlar</button>
+            <button class="filter-pill" data-category="printerler">Printerlər</button>
+            <button class="filter-pill" data-category="skaynerler">Skaynerlər</button>
+            <button class="filter-pill" data-category="monitorlar">Monitorlar</button>
+          </div>
+        </div>
+
+        <div class="row g-4" id="productsGrid">
+          <!-- Products injected by script.js -->
+        </div>
+
+        <!-- Load more -->
+        <div class="text-center mt-5" id="loadMoreWrapper" style="display: none;">
+          <button class="btn btn-load-more" id="loadMoreBtn">
+            <i class="bi bi-arrow-down-circle me-2"></i>Daha çox göstər
+          </button>
+        </div>
+
+        <!-- No results message -->
+        <div class="text-center py-5 d-none" id="noResults">
+          <i class="bi bi-search no-results-icon"></i>
+          <p class="no-results-text">Axtarışınızla uyğun məhsul tapılmadı.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CART SUMMARY SECTION (Hesablaşma) ===== -->
+    <section class="cart-summary-section py-5" id="cartSummary">
+      <div class="container">
+        <div class="section-header text-center mb-5">
+          <span class="section-eyebrow">Səbət</span>
+          <h2 class="section-title">Hesablaşma</h2>
+          <p class="section-description">Səbətinizdəki məhsulların detallı qiymət hesablaması</p>
+        </div>
+
+        <!-- Empty cart state -->
+        <div class="cart-summary-empty text-center" id="summaryEmpty">
+          <i class="bi bi-cart-x cart-empty-icon"></i>
+          <p class="cart-summary-empty-text">Səbətiniz hal-hazırda boşdur. Məhsulları səbətə əlavə edin.</p>
+          <a href="#products" class="btn btn-hero-secondary" style="border-color: var(--navy-600); color: var(--navy-700);">Məhsullara bax</a>
+        </div>
+
+        <!-- Cart with items -->
+        <div class="cart-summary-content" id="summaryContent" style="display: none;">
+          <div class="row g-4">
+            <!-- Items list -->
+            <div class="col-lg-7">
+              <div class="summary-card">
+                <h4 class="summary-card-title"><i class="bi bi-bag-check me-2"></i>Səbətdəki məhsullar</h4>
+                <div id="summaryItemsList">
+                  <!-- Filled by script.js -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Calculation -->
+            <div class="col-lg-5">
+              <div class="summary-calc-card">
+                <h4 class="summary-card-title"><i class="bi bi-calculator me-2"></i>Qiymət hesablaması</h4>
+                <div class="summary-calc-body">
+                  <div class="summary-calc-row">
+                    <span class="summary-calc-label"><i class="bi bi-tag me-2"></i>Məbləğ:</span>
+                    <span class="summary-calc-value" id="summarySubtotal">0 AZN</span>
+                  </div>
+                  <div class="summary-calc-row">
+                    <span class="summary-calc-label"><i class="bi bi-truck me-2"></i>Çatdırılma:</span>
+                    <span class="summary-calc-value" id="summaryShipping">0 AZN</span>
+                  </div>
+                  <div class="summary-calc-row summary-discount-row">
+                    <span class="summary-calc-label"><i class="bi bi-percent me-2"></i>Endirim (5%):</span>
+                    <span class="summary-calc-value summary-discount-value" id="summaryDiscount">0 AZN</span>
+                  </div>
+                  <div class="summary-calc-divider"></div>
+                  <div class="summary-calc-total">
+                    <span>Ümumi cəm:</span>
+                    <span class="summary-total-amount" id="summaryTotal">0 AZN</span>
+                  </div>
+                  <div class="summary-free-shipping-note" id="freeShippingNote" style="display: none;">
+                    <i class="bi bi-info-circle me-1"></i>
+                    <span id="freeShippingText"></span>
+                  </div>
+                  <button class="btn btn-summary-checkout" id="summaryCheckoutBtn">
+                    <i class="bi bi-credit-card-2-front me-2"></i>Hesablaşma
+                  </button>
+                  <button class="btn btn-clear-cart" id="clearCartBtn">
+                    <i class="bi bi-trash3 me-2"></i>Səbəti təmizlə
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FEATURES STRIP ===== -->
+    <section class="features-strip py-4">
+      <div class="container">
+        <div class="row g-3 text-center">
+          <div class="col-6 col-lg-3">
+            <div class="feature-item">
+              <i class="bi bi-truck feature-icon"></i>
+              <span class="feature-text">Pulsuz çatdırılma</span>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3">
+            <div class="feature-item">
+              <i class="bi bi-shield-check feature-icon"></i>
+              <span class="feature-text">Zəmanət təminatı</span>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3">
+            <div class="feature-item">
+              <i class="bi bi-arrow-repeat feature-icon"></i>
+              <span class="feature-text">14 gün qaytarılma</span>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3">
+            <div class="feature-item">
+              <i class="bi bi-headset feature-icon"></i>
+              <span class="feature-text">24/7 dəstək</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row g-4 py-5">
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-brand d-flex align-items-center gap-2 mb-3">
+              <i class="bi bi-bag-heart-fill footer-brand-icon"></i>
+              <span class="footer-brand-text">Elektronik Ticarət Mərkəzi</span>
+            </div>
+            <p class="footer-about">
+              Azərbaycanın ən böyük elektronika mağazası. Ən son texnologiya məhsullarını uyğun qiymətə təqdim edirik. Keyfiyyət və etibar — bizim əsas prinsipimizdir.
+            </p>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h5 class="footer-heading">Əlaqə</h5>
+            <ul class="footer-contact-list">
+              <li><i class="bi bi-geo-alt-fill"></i> <span>Bakı şəh., Nizami küç. 120</span></li>
+              <li><i class="bi bi-telephone-fill"></i> <span>+994 12 555 33 22</span></li>
+              <li><i class="bi bi-envelope-fill"></i> <span>info@eticaret.az</span></li>
+              <li><i class="bi bi-clock-fill"></i> <span>Hər gün: 09:00 — 22:00</span></li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-6">
+            <h5 class="footer-heading">Kateqoriyalar</h5>
+            <ul class="footer-link-list">
+              <li><a href="#products" data-footer-category="smartfonlar">Smartfonlar</a></li>
+              <li><a href="#products" data-footer-category="noutbuklar">Noutbuklar</a></li>
+              <li><a href="#products" data-footer-category="aksesuarlar">Aksesuarlar</a></li>
+              <li><a href="#products" data-footer-category="mehset-texnikasi">Məişət texnikası</a></li>
+              <li><a href="#products" data-footer-category="televizorlar">Televizorlar</a></li>
+              <li><a href="#products" data-footer-category="kondisionerler">Kondisionerlər</a></li>
+              <li><a href="#products" data-footer-category="aspiratorlar">Aspiratorlar</a></li>
+              <li><a href="#products" data-footer-category="soyuducular">Soyuducular</a></li>
+              <li><a href="#products" data-footer-category="fenler">Fenlər</a></li>
+              <li><a href="#products" data-footer-category="sok-cekenler">Şok çəkənlər</a></li>
+              <li><a href="#products" data-footer-category="pecliler">Pəçlilər</a></li>
+              <li><a href="#products" data-footer-category="et-cekenler">Ət çəkənlər</a></li>
+              <li><a href="#products" data-footer-category="utuler">Ütülər</a></li>
+              <li><a href="#products" data-footer-category="blenderler">Blenderlər</a></li>
+              <li><a href="#products" data-footer-category="tosterler">Tosterlər</a></li>
+              <li><a href="#products" data-footer-category="plansetler">Plansetlər</a></li>
+              <li><a href="#products" data-footer-category="elektron-kitablar">Elektron kitablar</a></li>
+              <li><a href="#products" data-footer-category="robot-supurgerler">Robot tostoranlar</a></li>
+              <li><a href="#products" data-footer-category="mikro-dalga">Mikro dalğalı soba</a></li>
+              <li><a href="#products" data-footer-category="proyektorlar">Proyektorlar</a></li>
+              <li><a href="#products" data-footer-category="kameralar">Kameralar</a></li>
+              <li><a href="#products" data-footer-category="dronlar">Dronlar</a></li>
+              <li><a href="#products" data-footer-category="printerler">Printerlər</a></li>
+              <li><a href="#products" data-footer-category="skaynerler">Skaynerlər</a></li>
+              <li><a href="#products" data-footer-category="monitorlar">Monitorlar</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h5 class="footer-heading">Bizi izləyin</h5>
+            <div class="social-links">
+              <a href="#" class="social-link" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="social-link" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="social-link" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+              <a href="#" class="social-link" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+              <a href="#" class="social-link" aria-label="Telegram"><i class="bi bi-telegram"></i></a>
+            </div>
+            <p class="footer-newsletter-text">Kampaniyalardan xəbərdar olun</p>
+            <div class="footer-newsletter">
+              <input type="email" class="form-control footer-input" placeholder="E-poçt ünvanınız" />
+              <button class="btn footer-subscribe-btn"><i class="bi bi-send-fill"></i></button>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Elektronik Ticarət Mərkəzi. Bütün hüquqlar qorunur.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ===== FAVORITES OFFCANVAS ===== -->
+    <div class="offcanvas offcanvas-end cart-offcanvas" tabindex="-1" id="favOffcanvas">
+      <div class="offcanvas-header cart-offcanvas-header">
+        <h5 class="offcanvas-title"><i class="bi bi-heart-fill me-2"></i>Sevimliler</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+      </div>
+      <div class="offcanvas-body cart-offcanvas-body" id="favItems">
+        <div class="cart-empty" id="favEmpty">
+          <i class="bi bi-heart cart-empty-icon"></i>
+          <p>Sevimliler siyahınız boşdur</p>
+        </div>
+      </div>
+      <div class="cart-footer" id="favFooter" style="display: none;">
+        <button class="btn btn-checkout" id="addAllToFavBtn"><i class="bi bi-cart-plus me-2"></i>Hamısını səbətə at</button>
+      </div>
+    </div>
+
+    <!-- ===== CHECKOUT MODAL ===== -->
+    <div class="modal fade" id="checkoutModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content checkout-modal-content">
+          <div class="modal-header checkout-modal-header">
+            <h5 class="modal-title"><i class="bi bi-receipt me-2"></i>Sifariş yekunlaşdırılması</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body checkout-modal-body" id="checkoutBody">
+            <!-- Filled by script.js -->
+          </div>
+          <div class="modal-footer checkout-modal-footer">
+            <button type="button" class="btn btn-secondary-cancel" data-bs-dismiss="modal">İmtina et</button>
+            <button type="button" class="btn btn-confirm-order" id="confirmOrderBtn"><i class="bi bi-check-lg me-1"></i>Sifarişi təsdiqlə</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== CART OFFCANVAS ===== -->
+    <div class="offcanvas offcanvas-end cart-offcanvas" tabindex="-1" id="cartOffcanvas">
+      <div class="offcanvas-header cart-offcanvas-header">
+        <h5 class="offcanvas-title"><i class="bi bi-cart3 me-2"></i>Səbətim</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+      </div>
+      <div class="offcanvas-body cart-offcanvas-body" id="cartItems">
+        <div class="cart-empty" id="cartEmpty">
+          <i class="bi bi-cart-x cart-empty-icon"></i>
+          <p>Səbətiniz boşdur</p>
+        </div>
+      </div>
+      <div class="cart-footer" id="cartFooter" style="display: none;">
+        <div class="cart-calc-row">
+          <span class="cart-calc-label">Məbləğ (subyekti):</span>
+          <span class="cart-calc-value" id="cartSubtotal">0 AZN</span>
+        </div>
+        <div class="cart-calc-row">
+          <span class="cart-calc-label">Çatdırılma:</span>
+          <span class="cart-calc-value" id="cartShipping">0 AZN</span>
+        </div>
+        <div class="cart-calc-row discount-row">
+          <span class="cart-calc-label">Endirim:</span>
+          <span class="cart-calc-value discount-value" id="cartDiscount">0 AZN</span>
+        </div>
+        <div class="cart-total">
+          <span>Ümumi cəm:</span>
+          <span class="cart-total-amount" id="cartTotal">0 AZN</span>
+        </div>
+        <button class="btn btn-checkout" id="checkoutBtn"><i class="bi bi-credit-card-2-front me-2"></i>Hesablaşma</button>
+      </div>
+    </div>
+
+    <!-- ===== TOAST NOTIFICATION ===== -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1090;">
+      <div class="toast cart-toast align-items-center" id="cartToast" role="alert">
+        <div class="toast-body">
+          <i class="bi bi-check-circle-fill me-2"></i>
+          <span id="toastMessage">Məhsul səbətə əlavə edildi!</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="/script.js"></script>
+  </body>
+</html>
